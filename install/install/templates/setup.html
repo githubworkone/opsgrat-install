@@ -329,6 +329,14 @@
 var interval_id = null;
 function getScriptResult(isInit) {
 
+    onLine(function(flag){
+    if(flag){
+        console.log('网络畅通')
+    }else{
+        alert('网络故障,请检查网络！')
+    }
+    });
+
     $.getJSON('{% url "api_check" %}', {format: "json"}, function(data) {
 
         if(data.is_running == false && data.information == true ) {
@@ -367,9 +375,10 @@ function getScriptResult(isInit) {
     })
 
 }
+
 $("#stopButton").hide();
-{#$("#finishButton").hide();#}
 $("#reTryButton").hide();
+
 $(function(){
     $('#myCarousel').carousel({
     pause: true,
@@ -681,7 +690,20 @@ $("#stopButton").on("click", function (e) {
             }
         }
     })
-})
+});
+
+
+
+function onLine(callback){
+    var img = new Image();
+    img.src = 'https://www.baidu.com/favicon.ico?_t=' + Date.now();
+    img.onload=function(){
+        if (callback) callback(true)
+    };
+    img.onerror=function(){
+        if (callback) callback(false)
+    };
+}
 
 
 </script>
