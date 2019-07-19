@@ -333,8 +333,18 @@ function getScriptResult(isInit) {
     if(flag){
         console.log('网络畅通')
     }else{
-        alert('网络故障,请检查网络！')
-    }
+        $.confirm({
+        title: '执行失败',
+        content: '网络故障，请检查网络！',
+        buttons: {
+            confirm: {
+                text: '确认',
+                btnClass: 'btn-blue',
+                action: function () {
+                    window.parent.location.reload();
+                }
+            }
+        }
     });
 
     $.getJSON('{% url "api_check" %}', {format: "json"}, function(data) {
