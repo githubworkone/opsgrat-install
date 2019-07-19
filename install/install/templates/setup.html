@@ -331,6 +331,25 @@
 var interval_id = null;
 function getScriptResult(isInit) {
 
+            onLine(function(flag) {
+            if (flag) {
+                console.log('网络畅通')
+            } else {
+                $.confirm({
+                    title: '执行失败',
+                    content: '网络故障，请检查网络！',
+                    buttons: {
+                        confirm: {
+                            text: '确认',
+                            btnClass: 'btn-blue',
+                            action: function () {
+                            }
+                        }
+                    }
+                })
+            }
+            });
+
     $.getJSON('{% url "api_check" %}', {format: "json"}, function(data) {
 
         if(data.is_running == false && data.information == true ) {
@@ -364,26 +383,6 @@ function getScriptResult(isInit) {
             $("#SubmitButton").hide();
             $("#reTryButton").hide();
             $("#stopButton").show();
-
-            onLine(function(flag) {
-            if (flag) {
-                console.log('网络畅通')
-            } else {
-                $.confirm({
-                    title: '执行失败',
-                    content: '网络故障，请检查网络！',
-                    buttons: {
-                        confirm: {
-                            text: '确认',
-                            btnClass: 'btn-blue',
-                            action: function () {
-                                {#window.parent.location.reload();#}
-                            }
-                        }
-                    }
-                })
-            }
-            });
 
         }
     })
