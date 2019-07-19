@@ -12,8 +12,8 @@ mysql_opsgrat_db: opsgrat
 mysql_sso_db: opsgrat_sso
 
 opsgrat_uwsgi_port: 7500
-opsgrat_nginx_port: 8500
-sso_nginx_port: 8501
+opsgrat_nginx_port: 8080
+sso_nginx_port: 8081
 sso_uwsgi_port: 7501
 
 redis_host: 127.0.0.1

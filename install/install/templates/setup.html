@@ -139,7 +139,7 @@
               <div class="form-group">
                 <label for="mysql_port" class="col-sm-4 control-label" style="text-indent: 54px"><span class="red">*</span>MySQL端口：</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="mysql_port" name="mysql_port" placeholder="请输入MySQL端口" value="{{ file.mysql_port }}">
+                  <input type="text" class="form-control" id="mysql_port" name="mysql_port" onkeyup="var reg = /^[1-9]+[0-9]*/;if(!reg.test(this.value)) {this.value='';placeholder = '只能输入大于0的数字'}" placeholder="请输入MySQL端口" value="{{ file.mysql_port }}">
                 </div>
               </div>
                 <div class="form-group">
@@ -222,7 +222,7 @@
               <div class="form-group">
                 <label for="redis_port" class="col-sm-4 control-label" style="text-indent: 62.5px"><span class="red">*</span>Redis端口：</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="redis_port" name="redis_port" placeholder="请输入Redis端口" value="{{ file.redis_port }}">
+                  <input type="text" class="form-control" id="redis_port" name="redis_port" onkeyup="var reg = /^[1-9]+[0-9]*/;if(!reg.test(this.value)) {this.value='';placeholder = '只能输入大于0的数字'}" placeholder="请输入Redis端口" value="{{ file.redis_port }}">
                 </div>
               </div>
               <div class="form-group">
@@ -252,7 +252,7 @@
               <div class="form-group">
                 <label for="rabbitmq_port" class="col-sm-4 control-label" style="text-indent: 56px"><span class="red">*</span>Rabbit端口：</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="rabbitmq_port" name="rabbitmq_port" placeholder="请输入Rabbit端口" value="{{ file.rabbitmq_port }}">
+                  <input type="text" class="form-control" id="rabbitmq_port" name="rabbitmq_port" onkeyup="var reg = /^[1-9]+[0-9]*/;if(!reg.test(this.value)) {this.value='';placeholder = '只能输入大于0的数字'}" placeholder="请输入Rabbit端口" value="{{ file.rabbitmq_port }}">
                 </div>
               </div>
               <div class="form-group">
