@@ -10,10 +10,12 @@
 <link href="/static/css/bootstrap.css" rel="stylesheet">
 <link href="/static/css/bootstrapValidator.css" rel="stylesheet">
 <link href="/static/css/styleWeb.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/jquery-confirm.min.css" />
 
 <script src="/static/js/jquery-2.1.1.js"></script>
 <script src="/static/js/jquery.form.js"></script>
 <script src="/static/js/jquery.validate.js"></script>
+<script src="/static/js/jquery-confirm.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
 
 </head>
@@ -375,7 +377,7 @@ function getScriptResult(isInit) {
                             text: '确认',
                             btnClass: 'btn-blue',
                             action: function () {
-                                window.parent.location.reload();
+                                {#window.parent.location.reload();#}
                             }
                         }
                     }
