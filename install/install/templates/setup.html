@@ -10,12 +10,10 @@
 <link href="/static/css/bootstrap.css" rel="stylesheet">
 <link href="/static/css/bootstrapValidator.css" rel="stylesheet">
 <link href="/static/css/styleWeb.css" rel="stylesheet">
-<link rel="stylesheet" href="/static/css/jquery-confirm.min.css" />
 
 <script src="/static/js/jquery-2.1.1.js"></script>
 <script src="/static/js/jquery.form.js"></script>
 <script src="/static/js/jquery.validate.js"></script>
-<script src="/static/js/jquery-confirm.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
 
 </head>
@@ -330,25 +328,6 @@
 
 var interval_id = null;
 function getScriptResult(isInit) {
-
-            onLine(function(flag) {
-            if (flag) {
-                console.log('网络畅通')
-            } else {
-                $.confirm({
-                    title: '执行失败',
-                    content: '网络故障，请检查网络！',
-                    buttons: {
-                        confirm: {
-                            text: '确认',
-                            btnClass: 'btn-blue',
-                            action: function () {
-                            }
-                        }
-                    }
-                })
-            }
-            });
 
     $.getJSON('{% url "api_check" %}', {format: "json"}, function(data) {
 
@@ -703,19 +682,6 @@ $("#stopButton").on("click", function (e) {
         }
     })
 });
-
-
-
-function onLine(callback){
-    var img = new Image();
-    img.src = 'https://www.baidu.com/favicon.ico?_t=' + Date.now();
-    img.onload=function(){
-        if (callback) callback(true)
-    };
-    img.onerror=function(){
-        if (callback) callback(false)
-    };
-}
 
 
 </script>
